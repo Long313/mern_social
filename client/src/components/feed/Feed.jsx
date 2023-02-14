@@ -8,16 +8,16 @@ function Feed({ username }) {
   useEffect(() => {
     const fetchPost = async () => {
       const res = username
-        ? await axios.get("posts/profile/" + username)
+        ? await axios.get(`/posts/profile/${username}`)
         : await axios.get("posts/timeline/63eb5a897020965c2b41af1f");
       console.log(res.data);
       setPosts(res.data);
     };
     fetchPost();
-  }, []);
+  }, [username]);
   return (
     <div className="feed">
-      <Share />
+      <Share/>
       {posts.map((post) => (
         <Post key={post._id} post={post} />
       ))}
