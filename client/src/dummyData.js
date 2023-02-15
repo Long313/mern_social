@@ -1,42 +1,42 @@
 export const Users = [
   {
-    profilePicture: "person/1.jpeg",
+    profilePicture: "/person/1.jpeg",
     username: "Safak Kocaoglu",
   },
   {
-    profilePicture: "person/2.jpeg",
+    profilePicture: "/person/2.jpeg",
     username: "Janell Shrum",
   },
   {
-    profilePicture: "person/3.jpeg",
+    profilePicture: "/person/3.jpeg",
     username: "Alex Durden",
   },
   {
-    profilePicture: "person/4.jpeg",
+    profilePicture: "/person/4.jpeg",
     username: "Long Tran",
   },
   {
-    profilePicture: "person/5.jpeg",
-    username: "Trang Thu",
+    profilePicture: "/person/5.jpeg",
+    username: "Ronaldo",
   },
   {
-    profilePicture: "person/6.jpeg",
+    profilePicture: "/person/6.jpeg",
     username: "Safak Kocaoglu",
   },
   {
-    profilePicture: "person/7.jpeg",
+    profilePicture: "/person/7.jpeg",
     username: "Travis Bennett",
   },
   {
-    profilePicture: "person/8.jpeg",
+    profilePicture: "/person/8.jpeg",
     username: "Kristen Thomas",
   },
   {
-    profilePicture: "person/9.jpeg",
+    profilePicture: "/person/9.jpeg",
     username: "Gary Duty",
   },
   {
-    profilePicture: "person/10.jpeg",
+    profilePicture: "/person/10.jpeg",
     username: "Safak Kocaoglu",
   },
 ];
