@@ -1,33 +1,34 @@
 import axios from "axios";
 import { useRef } from "react";
 import "./register.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
-function Register() {
+export default function Register() {
   const username = useRef();
   const email = useRef();
   const password = useRef();
   const passwordAgain = useRef();
   const navigate = useNavigate();
+
   const handleClick = async (e) => {
     e.preventDefault();
     if (passwordAgain.current.value !== password.current.value) {
-      passwordAgain.current.setCustomValidity("Password dont match");
+      passwordAgain.current.setCustomValidity("Passwords don't match!");
     } else {
       const user = {
         username: username.current.value,
         email: email.current.value,
         password: password.current.value,
       };
-      console.log("success");
       try {
-        await axios.post("/auth/register",{ params: user })
+        await axios.post("/auth/register", user);
         navigate("/login");
       } catch (err) {
         console.log(err);
       }
     }
   };
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -40,43 +41,40 @@ function Register() {
         <div className="loginRight">
           <form className="loginBox" onSubmit={handleClick}>
             <input
-              className="loginInput"
-              type="text"
               placeholder="Username"
               required
               ref={username}
+              className="loginInput"
             />
             <input
-              className="loginInput"
-              type="email"
               placeholder="Email"
               required
               ref={email}
+              className="loginInput"
+              type="email"
             />
             <input
-              className="loginInput"
-              type="password"
               placeholder="Password"
               required
               ref={password}
+              className="loginInput"
+              type="password"
               minLength="6"
             />
             <input
-              className="loginInput"
-              type="password"
               placeholder="Password Again"
               required
               ref={passwordAgain}
+              className="loginInput"
+              type="password"
             />
             <button className="loginButton" type="submit">
               Sign Up
             </button>
-            <button className="loginRegisterButton">Login into Account</button>
+            <button className="loginRegisterButton">Log into Account</button>
           </form>
         </div>
       </div>
     </div>
   );
 }
-
-export default Register;
