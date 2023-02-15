@@ -9,6 +9,7 @@ const authRoute = require("./routes/auth");
 const postsRoute = require("./routes/posts");
 
 dotenv.config();
+const PORT = process.env.PORT || 5000
 
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser:false}, () => {
   console.log("Connected to MongoDB");
@@ -22,6 +23,6 @@ app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postsRoute);
 
-app.listen(8800, () => {
+app.listen(PORT, () => {
   console.log("Backend server is running!");
 });
