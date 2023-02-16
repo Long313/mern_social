@@ -48,7 +48,7 @@ router.get("/", async (req, res) => {
     const user = userId
       ? await User.findById(userId)
       : await User.findOne({ username: username });
-    const { password, updateAt, ...other } = user._doc;
+    const { password, updatedAt, ...other } = user._doc;
     res.status(200).json(other);
   } catch (err) {
     res.status(500).json(err);
@@ -69,7 +69,7 @@ router.get("/friends/:userId", async (req, res) => {
       const { _id, username, profilePicture } = friend;
       friendList.push({ _id, username, profilePicture });
     });
-    res.status(200).json(friendList);
+    res.status(200).json(friendList)
   } catch (err) {
     res.status(500).json(err);
   }

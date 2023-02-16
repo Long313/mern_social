@@ -1,5 +1,4 @@
 import "./online.css";
-import { Users } from "../../dummyData";
 
 const Online = ({ user }) => {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;

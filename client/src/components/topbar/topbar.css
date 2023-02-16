@@ -63,6 +63,9 @@
   cursor: pointer;
 }
 
+.topbarLink ~ .topbarLink {
+  margin-left: 10px;
+}
 .topbarIcons {
   display: flex !important;
 }

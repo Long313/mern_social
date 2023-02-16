@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
-function Topbar() {
+export default function Topbar() {
   const { user } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "none" }}>
           <span className="logo">Lamasocial</span>
         </Link>
       </div>
@@ -20,8 +20,8 @@ function Topbar() {
         <div className="searchbar">
           <AiOutlineSearch className="searchIcon" />
           <input
+            placeholder="Search for friend, post or video"
             className="searchInput"
-            placeholder="Search for friends, post or video"
           />
         </div>
       </div>
@@ -51,7 +51,7 @@ function Topbar() {
                 ? PF + user.profilePicture
                 : PF + "person/noAvatar.png"
             }
-            alt="person"
+            alt=""
             className="topbarImg"
           />
         </Link>
@@ -59,5 +59,3 @@ function Topbar() {
     </div>
   );
 }
-
-export default Topbar;

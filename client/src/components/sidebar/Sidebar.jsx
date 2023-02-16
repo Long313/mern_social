@@ -1,18 +1,21 @@
-import "./sidebar.css";
 import { FiRss } from "react-icons/fi";
 import {
   BsFillChatLeftTextFill,
   BsFillPlayCircleFill,
   BsFillBookmarkFill,
-  BsQuestionCircle,
-  BsFillBagFill,
-  BsCalendar2Event,
 } from "react-icons/bs";
 import { MdGroups } from "react-icons/md";
+import {
+  BsFillBagFill,
+  BsQuestionCircle,
+  BsCalendar2Event,
+} from "react-icons/bs";
 import { IoMdSchool } from "react-icons/io";
+import "./sidebar.css";
+import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
-import { Users} from '../../dummyData';
-const Sidebar = () => {
+
+export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -30,19 +33,19 @@ const Sidebar = () => {
             <span className="sidebarListItemText">Videos</span>
           </li>
           <li className="sidebarListItem">
-            <MdGroups className="sidebarIcon" />
+            <BsFillBookmarkFill className="sidebarIcon" />
             <span className="sidebarListItemText">Groups</span>
           </li>
           <li className="sidebarListItem">
-            <BsFillBookmarkFill className="sidebarIcon" />
+            <MdGroups className="sidebarIcon" />
             <span className="sidebarListItemText">Bookmarks</span>
           </li>
           <li className="sidebarListItem">
-            <BsQuestionCircle className="sidebarIcon" />
+            <BsFillBagFill className="sidebarIcon" />
             <span className="sidebarListItemText">Questions</span>
           </li>
           <li className="sidebarListItem">
-            <BsFillBagFill className="sidebarIcon" />
+            <BsQuestionCircle className="sidebarIcon" />
             <span className="sidebarListItemText">Jobs</span>
           </li>
           <li className="sidebarListItem">
@@ -57,13 +60,11 @@ const Sidebar = () => {
         <button className="sidebarButton">Show More</button>
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
-          {Users.map((user,index) => (
-            <CloseFriend key={index} user={user}/>
+          {Users.map((u) => (
+            <CloseFriend key={u.id} user={u} />
           ))}
         </ul>
       </div>
     </div>
   );
-};
-
-export default Sidebar;
+}

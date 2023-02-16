@@ -4,7 +4,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from './context/AuthContext'
 function App() {
   const {user} = useContext(AuthContext);
   return (

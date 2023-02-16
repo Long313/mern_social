@@ -13,9 +13,17 @@ const path = require("path");
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: false }, () => {
-  console.log("Connected to MongoDB");
-});
+mongoose.connect(
+  process.env.MONGO_URL,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log("Connected to MongoDB");
+  }
+);
+// mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: false }, () => {
+//   console.log("Connected to MongoDB");
+// });
+
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 //middleware
@@ -36,8 +44,8 @@ const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   try {
     return res.status(200).json("File uploded successfully");
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error(error);
   }
 });
 
